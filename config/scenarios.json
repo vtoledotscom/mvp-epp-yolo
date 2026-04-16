@@ -1,0 +1,28 @@
+{
+  "scenarios": {
+    "helmet_and_vest_required": {
+      "description": "Casco y chaleco obligatorios",
+      "helmet_required": true,
+      "vest_required": true,
+      "save_image": true,
+      "save_video": true,
+      "alert_cooldown_seconds": 15
+    },
+    "helmet_required": {
+      "description": "Solo casco obligatorio",
+      "helmet_required": true,
+      "vest_required": false,
+      "save_image": true,
+      "save_video": true,
+      "alert_cooldown_seconds": 15
+    },
+    "vest_required": {
+      "description": "Solo chaleco obligatorio",
+      "helmet_required": false,
+      "vest_required": true,
+      "save_image": true,
+      "save_video": true,
+      "alert_cooldown_seconds": 15
+    }
+  }
+}

@@ -1,0 +1,7 @@
+opencv-python
+ultralytics
+python-dotenv
+requests
+tqdm
+pyyaml
+numpy

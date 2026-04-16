@@ -1,0 +1,80 @@
+{
+  "cameras": {
+    "cam_rtsp_001": {
+      "name": "Cámara principal",
+      "description": "Prueba general MVP",
+      "scenario_id": "helmet_and_vest_required",
+      "enabled": true,
+      "zone_name": "pasillo_operativo",
+      "inspection_zone": {
+        "type": "rectangle",
+        "x1": 210,
+        "y1": 80,
+        "x2": 410,
+        "y2": 690
+      },
+      "ignore_zones": [
+        {
+          "type": "rectangle",
+          "x1": 430,
+          "y1": 80,
+          "x2": 900,
+          "y2": 720
+        }
+      ],
+      "min_zone_overlap": 0.50,
+      "min_non_compliant_frames": 7,
+      "min_compliant_frames": 3
+    },
+    "cam_rtsp_002": {
+      "name": "Cámara casco obligatorio",
+      "description": "Zona donde solo casco es obligatorio",
+      "scenario_id": "helmet_required",
+      "enabled": true,
+      "zone_name": "pasillo_operativo",
+      "inspection_zone": {
+        "type": "rectangle",
+        "x1": 210,
+        "y1": 80,
+        "x2": 410,
+        "y2": 690
+      },
+      "ignore_zones": [
+        {
+          "type": "rectangle",
+          "x1": 430,
+          "y1": 80,
+          "x2": 900,
+          "y2": 720
+        }
+      ],
+      "min_zone_overlap": 0.50,
+      "min_non_compliant_frames": 7,
+      "min_compliant_frames": 3
+    },
+    "cam_rtsp_003": {
+      "name": "Cámara chaleco obligatorio",
+      "description": "Zona donde solo chaleco es obligatorio",
+      "scenario_id": "vest_required",
+      "inspection_zone": {
+        "type": "rectangle",
+        "x1": 210,
+        "y1": 80,
+        "x2": 410,
+        "y2": 690
+      },
+      "ignore_zones": [
+        {
+          "type": "rectangle",
+          "x1": 430,
+          "y1": 80,
+          "x2": 900,
+          "y2": 720
+        }
+      ],
+      "min_zone_overlap": 0.50,
+      "min_non_compliant_frames": 7,
+      "min_compliant_frames": 3
+    }
+  }
+}
