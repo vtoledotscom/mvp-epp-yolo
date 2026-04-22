@@ -604,24 +604,28 @@ def main() -> None:
             if not changed or event_type is None:
                 continue
 
+            # NUEVO: Solo procesar violation_started (no violation_resolved)
+            if event_type != "violation_started":
+                continue
+
             event_id = f"{CAMERA_ID}_{person_id}_{frame_count}"
             evidence_paths = {}
 
-            if event_type == "violation_started":
-                evidence_paths["image_full_path"] = evidence.save_full_image(frame, event_id)
-                evidence_paths["image_annotated_path"] = evidence.save_annotated_image(annotated_base, event_id)
-                evidence_paths["image_crop_path"] = evidence.save_person_crop(
-                    frame=frame,
-                    person_box=person_eval.get("person_box"),
-                    event_id=event_id,
-                )
-                evidence_paths["video_path"] = evidence.save_video_clip(
-                    frames=frame_buffer.get_frames(),
-                    fps=fps,
-                    width=width,
-                    height=height,
-                    event_id=event_id,
-                )
+            # Ya no necesita el if event_type == "violation_started" porque ya se filtró arriba
+            evidence_paths["image_full_path"] = evidence.save_full_image(frame, event_id)
+            evidence_paths["image_annotated_path"] = evidence.save_annotated_image(annotated_base, event_id)
+            evidence_paths["image_crop_path"] = evidence.save_person_crop(
+                frame=frame,
+                person_box=person_eval.get("person_box"),
+                event_id=event_id,
+            )
+            evidence_paths["video_path"] = evidence.save_video_clip(
+                frames=frame_buffer.get_frames(),
+                fps=fps,
+                width=width,
+                height=height,
+                event_id=event_id,
+            )
 
             event = serializer.build_event(
                 camera_id=CAMERA_ID,
